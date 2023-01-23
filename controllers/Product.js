@@ -47,7 +47,7 @@ const updateProductId = async (req, res) => {
 //DELETE /api/v1/product/:id. //Elimina el producto de la bd con el id 
 const deleteProductId = async (req, res) => {
     const products = await Product.findById(req.params.id);
-    await Product.remove(products);
+    await Product.deleteOne(products);
     res.status(200).json({
         status: "ok",
         mensaje: "Producto eliminado"

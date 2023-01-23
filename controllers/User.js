@@ -50,7 +50,7 @@ const updateUserId = async (req, res) => {
 //DELETE /api/v1/user/:id. //Elimina el usuario de la bd con el id
 const deleteUserId = async (req, res) => {
     const users = await User.findById(req.params.id);
-    await User.remove(users);
+    await User.deleteOne(users);
     res.status(200).json({
         status: "ok",
         mensaje: "Usuario eliminado"
